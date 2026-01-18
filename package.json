@@ -13,13 +13,17 @@
     "dev-nolog": "vite --config vite/config.dev.mjs",
     "build-nolog": "vite build --config vite/config.prod.mjs",
     "prepare": "husky",
+    "lint": "npx eslint .",
     "test": "npx playwright test"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.9",
+    "eslint": "^9.39.2",
     "husky": "^9.1.7",
     "typescript": "~5.7.2",
+    "typescript-eslint": "^8.53.0",
     "vite": "^6.3.1"
   },
   "dependencies": {
