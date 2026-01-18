@@ -1,30 +1,34 @@
 {
-    "name": "template-vite-ts",
-    "description": "A Phaser 3 TypeScript template using Vite.",
-    "version": "1.4.0",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/phaserjs/template-vite-ts.git"
-    },
-    "author": "Phaser Studio <support@phaser.io> (https://phaser.io/)",
-    "license": "MIT",
-    "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
-    "bugs": {
-        "url": "https://github.com/phaserjs/template-vite-ts/issues"
-    },
-    "homepage": "https://github.com/phaserjs/template-vite-ts#readme",
-    "scripts": {
-        "dev": "node log.js dev & vite --config vite/config.dev.mjs",
-        "build": "node log.js build & vite build --config vite/config.prod.mjs",
-        "dev-nolog": "vite --config vite/config.dev.mjs",
-        "build-nolog": "vite build --config vite/config.prod.mjs"
-    },
-    "devDependencies": {
-        "typescript": "~5.7.2",
-        "vite": "^6.3.1"
-    },
-    "dependencies": {
-        "phaser": "^3.90.0",
-        "terser": "^5.39.0"
-    }
+  "name": "word-warfare",
+  "description": "A browser card game.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nibsuoogee/word-warfare.git"
+  },
+  "author": "",
+  "scripts": {
+    "dev": "node log.js dev & vite --config vite/config.dev.mjs",
+    "build": "node log.js build & vite build --config vite/config.prod.mjs",
+    "dev-nolog": "vite --config vite/config.dev.mjs",
+    "build-nolog": "vite build --config vite/config.prod.mjs",
+    "prepare": "husky",
+    "lint": "npx eslint .",
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.9",
+    "eslint": "^9.39.2",
+    "husky": "^9.1.7",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.53.0",
+    "vite": "^6.3.1"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0",
+    "playwright": "^1.57.0",
+    "terser": "^5.39.0"
+  }
 }
