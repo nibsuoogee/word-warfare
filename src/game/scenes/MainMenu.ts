@@ -29,6 +29,6 @@ export class MainMenu extends Scene {
       this.scene.start("Game");
     });
 
-    this.data.set({ foo: "bar" });
+    this.data.set({ foo: "ludo" });
   }
 }

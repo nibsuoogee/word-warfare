@@ -19,7 +19,7 @@ export class Game extends Scene {
     this.msg_text = this.add.text(
       512,
       384,
-      "Make something fun!\nand share it with us:\nsupport@phaser.io",
+      this.scene.get("MainMenu").data.get("foo"),
       {
         fontFamily: "Arial Black",
         fontSize: 38,
