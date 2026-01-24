@@ -19,11 +19,13 @@ export default class MobileTextInput {
     this.width = width;
 
     this.box = scene.add.graphics();
-    this.text = scene.add.text(this.padding, this.padding, "", {
-      fontFamily: "times new roman",
-      fontSize: "24px",
-      color: "#000000",
-    });
+    this.text = scene.add
+      .text(this.padding - this.width / 2, 0, "", {
+        fontFamily: "times new roman",
+        fontSize: "24px",
+        color: "#000000",
+      })
+      .setOrigin(0, 0);
 
     this.container = scene.add.container(x, y, [this.box, this.text]);
 
@@ -37,11 +39,14 @@ export default class MobileTextInput {
     this.input.spellcheck = false;
 
     Object.assign(this.input.style, {
-      position: "absolute",
-      opacity: "1",
+      position: "fixed",
+      opacity: "0",
       pointerEvents: "none",
-      height: "1px",
-      width: "1px",
+      height: "0",
+      width: "0",
+      border: "none",
+      padding: "0",
+      margin: "0",
     });
 
     document.body.appendChild(this.input);
@@ -53,7 +58,6 @@ export default class MobileTextInput {
     });
 
     // Focus on tap
-    this.container.setSize(this.width, this.text.height + this.padding * 2);
     this.container.setInteractive();
 
     this.container.on("pointerdown", () => {
@@ -65,18 +69,32 @@ export default class MobileTextInput {
     this.box.clear();
 
     if (this.isFocused) {
-      this.box.fillStyle(0xcccccc, 1);
+      this.box.fillStyle(0xdddddd, 1);
     } else {
-      this.box.fillStyle(0xffffff, 1);
+      this.box.fillStyle(0xffffff, 0);
     }
 
     this.box.lineStyle(2, 0x000000);
 
     const height = this.text.height + this.padding * 2;
 
-    this.box.fillRoundedRect(0.5, 0.5, this.width, height, this.radius);
-    this.box.strokeRoundedRect(0, 0, this.width, height, this.radius);
+    this.box.fillRoundedRect(
+      -(this.width / 2),
+      -(this.text.height / 2),
+      this.width,
+      height,
+      this.radius,
+    );
+    this.box.strokeRoundedRect(
+      -(this.width / 2),
+      -(this.text.height / 2),
+      this.width,
+      height,
+      this.radius,
+    );
 
+    // Update interactive area to match graphics
+    this.container.setSize(this.width, height);
     this.container.setInteractive(
       new Phaser.Geom.Rectangle(0, 0, this.width, height),
       Phaser.Geom.Rectangle.Contains,
